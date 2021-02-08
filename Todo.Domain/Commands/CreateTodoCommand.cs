@@ -1,0 +1,29 @@
+﻿using Flunt.Notifications;
+using System;
+using Todo.Domain.Commands.Contracts;
+
+namespace Todo.Domain.Commands
+{
+    public class CreateTodoCommand : Notifiable, ICommand
+    {
+        public CreateTodoCommand() { }
+
+        public CreateTodoCommand(string title, string user, DateTime date)
+        {
+            this.Title = title;
+            this.User = user;
+            this.Date = date;
+        }
+
+        public string Title { get; set; }
+
+        public string User { get; set; }
+
+        public DateTime Date { get; set; }
+
+        public void Validate()
+        {
+
+        }
+    }
+}
