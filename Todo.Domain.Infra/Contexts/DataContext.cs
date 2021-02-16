@@ -7,7 +7,7 @@ namespace Todo.Domain.Infra.Contexts
     {
         public DataContext(DbContextOptions<DataContext> options) : base(options) { }
 
-        DbSet<TodoItem> Todos { get; set; }
+        public DbSet<TodoItem> Todos { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

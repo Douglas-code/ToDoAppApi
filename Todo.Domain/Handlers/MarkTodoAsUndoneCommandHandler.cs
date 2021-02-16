@@ -6,7 +6,7 @@ using Todo.Domain.Repositories;
 
 namespace Todo.Domain.Handlers
 {
-    public class MarkTodoAsUndoneCommandHandler : IHandler<MarkTodoAsDoneCommand>
+    public class MarkTodoAsUndoneCommandHandler : IHandler<MarkTodoAsUndoneCommand>
     {
         private readonly ITodoRepository _todoRepository;
 
@@ -15,7 +15,7 @@ namespace Todo.Domain.Handlers
             _todoRepository = todoRepository;
         }
 
-        public ICommandResult Handle(MarkTodoAsDoneCommand command)
+        public ICommandResult Handle(MarkTodoAsUndoneCommand command)
         {
             command.Validate();
             if (command.Invalid)

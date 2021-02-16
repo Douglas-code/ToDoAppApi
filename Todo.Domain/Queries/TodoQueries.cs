@@ -16,7 +16,7 @@ namespace Todo.Domain.Queries
             return x => x.User == user && x.Done == true;
         }
 
-        public static Expression<Func<TodoItem, bool>> GetAllDoneUndone(string user)
+        public static Expression<Func<TodoItem, bool>> GetAllUndone(string user)
         {
             return x => x.User == user && x.Done == false;
         }
@@ -24,6 +24,11 @@ namespace Todo.Domain.Queries
         public static Expression<Func<TodoItem, bool>> GetByPeriod(string user, DateTime date, bool done)
         {
             return x => x.User == user && x.Done == done & x.Date.Date == date.Date;
+        }
+
+        public static Expression<Func<TodoItem, bool>> GetById(Guid id, string user)
+        {
+            return x => x.Id == id && x.User == user;
         }
     }
 }
