@@ -31,10 +31,12 @@ namespace Todo.Domain.Api
             services.AddDbContext<DataContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("connectionString")));
 
             services.AddTransient<ITodoRepository, TodoRepository>();
+            services.AddTransient<IUserRepository, UserRepository>();
             services.AddTransient<IHandler<CreateTodoCommand>, CreateTodoCommandHandler>();
             services.AddTransient<IHandler<UpdateTodoCommand>, UpdateTodoCommandHandler>();
             services.AddTransient<IHandler<MarkTodoAsUndoneCommand>, MarkTodoAsUndoneCommandHandler>();
             services.AddTransient<IHandler<MarkTodoAsDoneCommand>, MarkTodoAsDoneCommandHandler>();
+            services.AddTransient<IHandler<CreateAccountCommand>, CreateAccountCommandHandler>();
 
             services.AddSwaggerGen(c =>
             {

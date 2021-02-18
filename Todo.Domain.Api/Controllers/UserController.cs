@@ -1,0 +1,21 @@
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Todo.Domain.Commands;
+using Todo.Domain.Handlers.Contracts;
+
+namespace Todo.Domain.Api.Controllers
+{
+    [ApiController, Route("v1/users")]
+    public class UserController : ControllerBase
+    {
+        [HttpPost, Route("create-account")]
+        public GenericCommandResult Create([FromBody] CreateAccountCommand command, [FromServices] IHandler<CreateAccountCommand> handler)
+        {
+            return (GenericCommandResult)handler.Handle(command);
+        }
+    }
+}
