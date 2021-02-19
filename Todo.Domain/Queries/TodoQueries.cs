@@ -6,29 +6,29 @@ namespace Todo.Domain.Queries
 {
     public static class TodoQueries
     {
-        public static Expression<Func<TodoItem, bool>> GetAll(string user)
+        public static Expression<Func<TodoItem, bool>> GetAll(Guid user)
         {
-            return x => x.User == user;
+            return x => x.User.Id == user;
         }
 
-        public static Expression<Func<TodoItem, bool>> GetAllDone(string user)
+        public static Expression<Func<TodoItem, bool>> GetAllDone(Guid user)
         {
-            return x => x.User == user && x.Done == true;
+            return x => x.User.Id == user && x.Done == true;
         }
 
-        public static Expression<Func<TodoItem, bool>> GetAllUndone(string user)
+        public static Expression<Func<TodoItem, bool>> GetAllUndone(Guid user)
         {
-            return x => x.User == user && x.Done == false;
+            return x => x.User.Id == user && x.Done == false;
         }
 
-        public static Expression<Func<TodoItem, bool>> GetByPeriod(string user, DateTime date, bool done)
+        public static Expression<Func<TodoItem, bool>> GetByPeriod(Guid user, DateTime date, bool done)
         {
-            return x => x.User == user && x.Done == done & x.Date.Date == date.Date;
+            return x => x.User.Id == user && x.Done == done & x.Date.Date == date.Date;
         }
 
-        public static Expression<Func<TodoItem, bool>> GetById(Guid id, string user)
+        public static Expression<Func<TodoItem, bool>> GetById(Guid id, Guid user)
         {
-            return x => x.Id == id && x.User == user;
+            return x => x.Id == id && x.User.Id == user;
         }
     }
 }

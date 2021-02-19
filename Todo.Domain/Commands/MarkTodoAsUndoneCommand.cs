@@ -9,15 +9,15 @@ namespace Todo.Domain.Commands
     {
         public MarkTodoAsUndoneCommand() { }
 
-        public MarkTodoAsUndoneCommand(Guid id, string user)
+        public MarkTodoAsUndoneCommand(Guid id, Guid user)
         {
             this.Id = id;
-            this.User = user;
+            this.UserId = user;
         }
 
         public Guid Id { get; set; }
 
-        public string User { get; set; }
+        public Guid UserId { get; set; }
 
         public void Validate()
         {
@@ -25,7 +25,6 @@ namespace Todo.Domain.Commands
             (
                 new Contract()
                     .Requires()
-                    .HasMinLen(this.User, 6, "User", "Usuário Inválido!")
             );
         }
     }

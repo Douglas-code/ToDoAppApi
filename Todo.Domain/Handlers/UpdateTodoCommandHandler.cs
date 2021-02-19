@@ -21,7 +21,7 @@ namespace Todo.Domain.Handlers
             if (command.Invalid)
                 return new GenericCommandResult(false, "Sua Tarefa está errada", command.Notifications);
 
-            TodoItem todoItem = this._todoRepository.GetById(command.Id, command.User);
+            TodoItem todoItem = this._todoRepository.GetById(command.Id, command.UserId);
             todoItem.UpdateTitle(command.Title);
             this._todoRepository.Update(todoItem);
             return new GenericCommandResult(true, "Tarefa Alterada com Sucesso", todoItem);

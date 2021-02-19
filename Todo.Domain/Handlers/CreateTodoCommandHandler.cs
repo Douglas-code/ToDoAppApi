@@ -10,10 +10,12 @@ namespace Todo.Domain.Handlers
     public class CreateTodoCommandHandler : Notifiable, IHandler<CreateTodoCommand>
     {
         private readonly ITodoRepository _todoRepository;
+        private readonly IUserRepository _userRepository;
 
-        public CreateTodoCommandHandler(ITodoRepository todoRepository)
+        public CreateTodoCommandHandler(ITodoRepository todoRepository, IUserRepository userRepository)
         {
             this._todoRepository = todoRepository;
+            this._userRepository = userRepository;
         }
 
         public ICommandResult Handle(CreateTodoCommand command)
@@ -22,7 +24,8 @@ namespace Todo.Domain.Handlers
             if (command.Invalid)
                 return new GenericCommandResult(false, "Sua tarefa está errada!", command.Notifications);
 
-            TodoItem todo = new TodoItem(command.Title, command.Date, command.User);
+            User user = this._userRepository.GetUserById(command.UserId);
+            TodoItem todo = new TodoItem(command.Title, command.Date, user);
             this._todoRepository.Create(todo);
             return new GenericCommandResult(true, "Tarefa criada com sucesso!", todo);
         }

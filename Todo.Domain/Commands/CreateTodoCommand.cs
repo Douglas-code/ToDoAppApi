@@ -2,6 +2,7 @@
 using Flunt.Validations;
 using System;
 using Todo.Domain.Commands.Contracts;
+using Todo.Domain.Entities;
 
 namespace Todo.Domain.Commands
 {
@@ -9,16 +10,16 @@ namespace Todo.Domain.Commands
     {
         public CreateTodoCommand() { }
 
-        public CreateTodoCommand(string title, string user, DateTime date)
+        public CreateTodoCommand(string title, Guid userId, DateTime date)
         {
             this.Title = title;
-            this.User = user;
+            this.UserId = userId;
             this.Date = date;
         }
 
         public string Title { get; set; }
 
-        public string User { get; set; }
+        public Guid UserId { get; set; }
 
         public DateTime Date { get; set; }
 
@@ -29,7 +30,6 @@ namespace Todo.Domain.Commands
                 new Contract()
                     .Requires()
                     .HasMinLen(this.Title, 3, "Title", "Por favor, descreva melhor essa tarefa!")
-                    .HasMinLen(this.User, 6, "User", "Usuário Inválido!")
             );
         }
     }

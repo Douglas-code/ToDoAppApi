@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using Todo.Domain.Entities;
 using Todo.Domain.Infra.Contexts;
 using Todo.Domain.Repositories;
@@ -23,6 +24,11 @@ namespace Todo.Domain.Infra.Repositories
         { 
             this._context.Users.Add(user);
             this._context.SaveChanges();
+        }
+
+        public User GetUserById(Guid userId)
+        {
+            return this._context.Users.FirstOrDefault(x => x.Id == userId);
         }
     }
 }

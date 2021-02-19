@@ -4,7 +4,9 @@ namespace Todo.Domain.Entities
 {
     public class TodoItem : Entity
     {
-        public TodoItem(string title, DateTime date, string user)
+        protected TodoItem() {}
+
+        public TodoItem(string title, DateTime date, User user)
         {
             this.Title = title;
             this.Done = false;
@@ -18,7 +20,7 @@ namespace Todo.Domain.Entities
 
         public DateTime Date { get; private set; }
 
-        public string User { get; private set; }
+        public User User { get; private set; }
 
         public void MarkAsDone()
         {

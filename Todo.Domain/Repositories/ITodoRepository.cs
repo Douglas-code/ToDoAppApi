@@ -10,14 +10,14 @@ namespace Todo.Domain.Repositories
 
         void Update(TodoItem todo);
 
-        TodoItem GetById(Guid id, string user);
+        TodoItem GetById(Guid id, Guid user);
 
-        IEnumerable<TodoItem> GetAll(string user);
+        IEnumerable<TodoItem> GetAll(Guid user);
 
-        IEnumerable<TodoItem> GetAllDone(string user);
+        IEnumerable<TodoItem> GetAllDone(Guid user);
 
-        IEnumerable<TodoItem> GetAllUndone(string user);
+        IEnumerable<TodoItem> GetAllUndone(Guid user);
 
-        IEnumerable<TodoItem> GetAllByPeriod(string user, DateTime date, bool done);
+        IEnumerable<TodoItem> GetAllByPeriod(Guid user, DateTime date, bool done);
     }
 }

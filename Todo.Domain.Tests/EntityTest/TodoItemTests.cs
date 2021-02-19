@@ -7,12 +7,12 @@ namespace Todo.Domain.Tests.EntityTest
     [TestClass]
     public class TodoItemTests
     {
-        private readonly TodoItem _todoItem = new TodoItem("Titulo aqui", DateTime.Now, "Bruce Waine");
+        //private readonly TodoItem _todoItem = new TodoItem("Titulo aqui", DateTime.Now, "Bruce Waine");
 
-        [TestMethod]
-        public void DadoUmNovoTodoOMesmoNaoPodeEstarConcluido()
-        {
-            Assert.IsFalse(this._todoItem.Done);
-        }
+        //[TestMethod]
+        //public void DadoUmNovoTodoOMesmoNaoPodeEstarConcluido()
+        //{
+        //    Assert.IsFalse(this._todoItem.Done);
+        //}
     }
 }

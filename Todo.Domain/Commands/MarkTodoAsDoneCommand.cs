@@ -2,6 +2,7 @@
 using Flunt.Validations;
 using System;
 using Todo.Domain.Commands.Contracts;
+using Todo.Domain.Entities;
 
 namespace Todo.Domain.Commands
 {
@@ -9,15 +10,15 @@ namespace Todo.Domain.Commands
     {
         public MarkTodoAsDoneCommand() { }
 
-        public MarkTodoAsDoneCommand(Guid id, string user)
+        public MarkTodoAsDoneCommand(Guid id, Guid user)
         {
             this.Id = id;
-            this.User = user;
+            this.UserId = user;
         }
 
         public Guid Id { get; set; }
 
-        public string User { get; set; }
+        public Guid UserId { get; set; }
 
         public void Validate()
         {
@@ -25,7 +26,6 @@ namespace Todo.Domain.Commands
             (
                 new Contract()
                     .Requires()
-                    .HasMinLen(this.User, 6, "User", "Usuário Inválido!")
             );
         }
     }

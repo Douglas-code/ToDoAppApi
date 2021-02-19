@@ -12,29 +12,29 @@ namespace Todo.Domain.Tests.Repositories
 
         }
 
-        public IEnumerable<TodoItem> GetAll(string user)
+        public IEnumerable<TodoItem> GetAll(Guid user)
         {
             throw new NotImplementedException();
         }
 
-        public IEnumerable<TodoItem> GetAllByPeriod(string user, DateTime date, bool done)
+        public IEnumerable<TodoItem> GetAllByPeriod(Guid user, DateTime date, bool done)
         {
             throw new NotImplementedException();
         }
 
-        public IEnumerable<TodoItem> GetAllDone(string user)
+        public IEnumerable<TodoItem> GetAllDone(Guid user)
         {
             throw new NotImplementedException();
         }
 
-        public IEnumerable<TodoItem> GetAllUndone(string user)
+        public IEnumerable<TodoItem> GetAllUndone(Guid user)
         {
             throw new NotImplementedException();
         }
 
-        public TodoItem GetById(Guid id, string user)
+        public TodoItem GetById(Guid id, Guid user)
         {
-            return new TodoItem("Titulo Aqui", DateTime.Now, "Barry Allen");
+            return new TodoItem("Titulo Aqui", DateTime.Now, new User("barry allen", "barryallen@dc.com.br", "12321123W"));
         }
 
         public void Update(TodoItem todo)

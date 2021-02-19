@@ -10,9 +10,9 @@ namespace Todo.Domain.Handlers
     {
         private readonly ITodoRepository _todoRepository;
 
-        public MarkTodoAsDoneCommandHandler(ITodoRepository todoRepository)
+        public MarkTodoAsDoneCommandHandler(ITodoRepository todoRepository, IUserRepository userRepository)
         {
-            _todoRepository = todoRepository;
+            this._todoRepository = todoRepository;
         }
 
         public ICommandResult Handle(MarkTodoAsDoneCommand command)
@@ -21,7 +21,7 @@ namespace Todo.Domain.Handlers
             if (command.Invalid)
                 return new GenericCommandResult(false, "Sua Tarefa está errada", command.Notifications);
 
-            TodoItem todoItem = this._todoRepository.GetById(command.Id, command.User);
+            TodoItem todoItem = this._todoRepository.GetById(command.Id, command.UserId);
             todoItem.MarkAsDone();
             this._todoRepository.Update(todoItem);
             return new GenericCommandResult(true, "Tarefa Concluída com Sucesso", todoItem);

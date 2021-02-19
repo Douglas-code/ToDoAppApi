@@ -1,4 +1,5 @@
-﻿using Todo.Domain.Entities;
+﻿using System;
+using Todo.Domain.Entities;
 
 namespace Todo.Domain.Repositories
 {
@@ -7,5 +8,6 @@ namespace Todo.Domain.Repositories
         void Create(User user);
 
         bool CheckIfEmailHasAlreadyBeenRegistered(User user);
+        User GetUserById(Guid userId);
     }
 }
