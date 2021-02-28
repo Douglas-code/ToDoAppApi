@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.30804.86
 MinimumVisualStudioVersion = 15.0.26124.0
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Todo.Domain", "Todo.Domain\Todo.Domain.csproj", "{036AB3DB-D30A-4B09-8078-6EE4F92BFED2}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Todo.Api", "Todo.Domain.Api\Todo.Api.csproj", "{0B955BDD-E28B-448C-AFC5-0B4D0840A750}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Todo.Api", "Todo.Api\Todo.Api.csproj", "{0B955BDD-E28B-448C-AFC5-0B4D0840A750}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Todo.Domain.Infra", "Todo.Domain.Infra\Todo.Domain.Infra.csproj", "{A10CD872-1F9A-470E-819F-E98376123167}"
 EndProject

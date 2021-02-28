@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text.Json.Serialization;
 
 namespace Todo.Domain.Entities
 {
@@ -20,6 +21,7 @@ namespace Todo.Domain.Entities
 
         public DateTime Date { get; private set; }
 
+        [JsonIgnore]
         public User User { get; private set; }
 
         public void MarkAsDone()

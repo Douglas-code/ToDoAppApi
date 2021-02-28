@@ -20,13 +20,13 @@ namespace Todo.Domain.Handlers
         {
             command.Validate();
             if (command.Invalid)
-                return new LoginCommandResult(false, "Email ou senha incorretos!", null, null);
+                return new LoginCommandResult(false, "Email ou senha incorretos!", null);
 
             User user = this._repository.GetUserByEmailAndPassword(command.Email, command.Password);
             if (user == null)
-                return new LoginCommandResult(false, "Email ou senha incorretos!", null, null);
+                return new LoginCommandResult(false, "Email ou senha incorretos!", null);
 
-            return new LoginCommandResult(true, "Login efetuado com sucesso!", user.Email, user.Password);
+            return new LoginCommandResult(true, "Login efetuado com sucesso!", user);
         }
     }
 }

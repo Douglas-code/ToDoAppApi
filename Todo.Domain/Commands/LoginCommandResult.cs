@@ -1,4 +1,5 @@
 ﻿using Todo.Domain.Commands.Contracts;
+using Todo.Domain.Entities;
 
 namespace Todo.Domain.Commands
 {
@@ -6,20 +7,17 @@ namespace Todo.Domain.Commands
     {
         public LoginCommandResult() { }
 
-        public LoginCommandResult(bool success, string message, string email, string password)
+        public LoginCommandResult(bool success, string message, User user)
         {
             this.Success = success;
             this.Message = message;
-            this.Email = email;
-            this.Password = password;
+            this.User = user;
         }
 
         public bool Success { get; set; }
 
         public string Message { get; set; }
 
-        public string Email { get; set; }
-
-        public string Password { get; set; }
+        public User User { get; set; }
     }
 }
