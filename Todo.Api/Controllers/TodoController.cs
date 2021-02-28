@@ -24,7 +24,7 @@ namespace Todo.Api.Controllers
         [HttpGet, Route("done")]
         public IEnumerable<TodoItem> GetAllDone([FromServices] ITodoRepository repository)
         {
-            return repository.GetAllDone(new Guid());
+            return repository.GetAllDone(Guid.Parse(User.Claims.Where(c => c.Type == ClaimTypes.Sid).Select(c => c.Value).SingleOrDefault()));
         }
 
         [HttpGet, Route("undone")]
