@@ -8,6 +8,9 @@ namespace Todo.Domain.Repositories
         void Create(User user);
 
         bool CheckIfEmailHasAlreadyBeenRegistered(User user);
+
         User GetUserById(Guid userId);
+
+        User GetUserByEmailAndPassword(string email, string password);
     }
 }

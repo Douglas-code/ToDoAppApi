@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
 namespace Todo.Domain.Entities
 {
@@ -19,6 +20,7 @@ namespace Todo.Domain.Entities
 
         public string Password { get; private set; }
 
+        [JsonIgnore]
         public List<TodoItem> Todos { get; private set; }
 
         public void UpdatePassword(string password)

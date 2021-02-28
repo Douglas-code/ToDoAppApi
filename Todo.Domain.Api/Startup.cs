@@ -37,6 +37,7 @@ namespace Todo.Domain.Api
             services.AddTransient<IHandler<MarkTodoAsUndoneCommand>, MarkTodoAsUndoneCommandHandler>();
             services.AddTransient<IHandler<MarkTodoAsDoneCommand>, MarkTodoAsDoneCommandHandler>();
             services.AddTransient<IHandler<CreateAccountCommand>, CreateAccountCommandHandler>();
+            services.AddTransient<ILoginHandler<LoginCommand>, LoginCommandHandler>();
 
             services.AddSwaggerGen(c =>
             {

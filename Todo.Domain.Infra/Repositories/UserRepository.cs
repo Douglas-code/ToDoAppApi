@@ -26,6 +26,11 @@ namespace Todo.Domain.Infra.Repositories
             this._context.SaveChanges();
         }
 
+        public User GetUserByEmailAndPassword(string email, string password)
+        {
+            return this._context.Users.FirstOrDefault(x => x.Email == email && x.Password == password);
+        }
+
         public User GetUserById(Guid userId)
         {
             return this._context.Users.FirstOrDefault(x => x.Id == userId);
